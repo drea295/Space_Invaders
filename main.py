@@ -1,4 +1,5 @@
 import pygame, sys
+from spaceship import Spaceship
 
 pygame.init()
 
@@ -13,6 +14,8 @@ screen = pygame.display.set_mode((screen_width,screen_height))
 pygame.display.set_caption("Space Invaders")
 
 clock = pygame.time.Clock()
+
+spaceship = Spaceship()
 
 while True:
     for event in pygame.event.get():
