@@ -1,5 +1,6 @@
 import pygame, sys
 from spaceship import Spaceship
+from laser import Laser
 
 pygame.init()
 
@@ -19,6 +20,12 @@ spaceship = Spaceship(screen_width, screen_height)
 spaceship_group = pygame.sprite.GroupSingle()
 spaceship_group.add(spaceship)
 
+laser = Laser((100,100))
+laser2 = Laser((100,200))
+
+lasers_group = pygame.sprite.Group()
+lasers_group.add(laser, laser2)
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -30,6 +37,7 @@ while True:
 
     screen.fill(grey)
     spaceship_group.draw(screen)
+    lasers_group.draw(screen)
     
     pygame.display.update()
     clock.tick(60)
