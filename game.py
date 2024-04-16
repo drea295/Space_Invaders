@@ -43,4 +43,11 @@ class Game:
 
     def move_aliens(self):
         self.aliens_group.update(self.aliens_direction)
+
+        alien_sprites = self.aliens_group.sprites()
+        for alien in alien_sprites:
+            if alien.rect.right >= self.screen_width:
+                self.aliens_direction = - 1
+            elif alien.rect.left <= 0:
+                self.aliens_direction = 1
         
