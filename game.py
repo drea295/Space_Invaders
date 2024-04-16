@@ -48,6 +48,14 @@ class Game:
         for alien in alien_sprites:
             if alien.rect.right >= self.screen_width:
                 self.aliens_direction = - 1
+                self.alien_move_down(2)
             elif alien.rect.left <= 0:
                 self.aliens_direction = 1
+                self.alien_move_down(2)
+
+    def alien_move_down(self, distance):
+        if self.aliens_group:
+            for alien in self.aliens_group.sprites():
+                alien.rect.y += distance
+
         
