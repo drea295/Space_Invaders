@@ -13,6 +13,7 @@ class Game:
         self.obstacles = self.create_obstacles()
         self.aliens_group = pygame.sprite.Group()
         self.create_aliens()
+        self.aliens_direction = 1
 
     def create_obstacles(self):
         obstacle_width = len(grid[0]) * 3
@@ -39,4 +40,7 @@ class Game:
 
                 alien = Alien(alien_type, x, y)
                 self.aliens_group.add(alien)
+
+    def move_aliens(self):
+        self.aliens_group.update(self.aliens_direction)
         

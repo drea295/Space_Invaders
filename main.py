@@ -32,6 +32,7 @@ while True:
     game.spaceship_group.draw(screen)
     game.spaceship_group.sprite.lasers_group.draw(screen)
     game.aliens_group.draw(screen)
+    game.move_aliens()
     for obstacle in game.obstacles:
         obstacle.blocks_group.draw(screen)
     
