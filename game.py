@@ -70,4 +70,12 @@ class Game:
     def create_mystery_ship(self):
         self.mystery_ship_group.add(MysteryShip(self.screen_width))
 
+    def check_for_collisions(self):
+        #spaceship
+        if self.spaceship_group.sprite.lasers_group:
+            for laser_sprite in self.spaceship_group.sprite.lasers_group:
+                if pygame.sprite.spritecollide(laser_sprite, self.aliens_group, True):
+                    laser_sprite.kill()
+
+
         
