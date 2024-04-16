@@ -1,5 +1,4 @@
 import pygame
-from pygame.sprite import _Group
 
 class Alien(pygame.sprite.Sprite):
     def __init__(self, type, x, y):
