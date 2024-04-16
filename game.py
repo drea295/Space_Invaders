@@ -76,6 +76,13 @@ class Game:
             for laser_sprite in self.spaceship_group.sprite.lasers_group:
                 if pygame.sprite.spritecollide(laser_sprite, self.aliens_group, True):
                     laser_sprite.kill()
+                if pygame.sprite.spritecollide(laser_sprite, self.mystery_ship_group, True):
+                    laser_sprite.kill()
+                
+                for obstacle in self.obstacles:
+                    if pygame.sprite.spritecollide(laser_sprite, obstacle.blocks_group, True):
+                        laser_sprite.kill()
+
 
 
         
