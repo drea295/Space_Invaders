@@ -7,10 +7,12 @@ pygame.init()
 
 screen_width = 750
 screen_height = 700
+offset = 50
 
 grey = (29,29,27)
+YELLOW = (243, 216 ,63)
 
-screen = pygame.display.set_mode((screen_width,screen_height))
+screen = pygame.display.set_mode((screen_width + offset, screen_height + 2*offset))
 
 pygame.display.set_caption("Space Invaders")
 
@@ -50,6 +52,7 @@ while True:
     screen.fill(grey)
 
     #draw
+    pygame.draw.rect(screen, YELLOW, (10, 10, 780, 780), 2 ,0 ,60 ,60 ,60 ,60)
     game.spaceship_group.draw(screen)
     game.spaceship_group.sprite.lasers_group.draw(screen)
     game.aliens_group.draw(screen)
