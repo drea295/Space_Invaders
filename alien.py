@@ -32,4 +32,4 @@ class MysteryShip(pygame.sprite.Sprite):
         elif self.rect.left < 0:
             self.kill()
 
-
+        
