@@ -12,6 +12,8 @@ offset = 50
 grey = (29,29,27)
 YELLOW = (243, 216 ,63)
 
+font = pygame.font.Font("Font/monogram.ttf")
+
 screen = pygame.display.set_mode((screen_width + offset, screen_height + 2*offset))
 
 pygame.display.set_caption("Space Invaders")
