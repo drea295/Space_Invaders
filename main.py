@@ -53,6 +53,7 @@ while True:
 
     #draw
     pygame.draw.rect(screen, YELLOW, (10, 10, 780, 780), 2 ,0 ,60 ,60 ,60 ,60)
+    pygame.draw.line(screen, YELLOW, (25, 730), (775, 730), 3)
     game.spaceship_group.draw(screen)
     game.spaceship_group.sprite.lasers_group.draw(screen)
     game.aliens_group.draw(screen)
