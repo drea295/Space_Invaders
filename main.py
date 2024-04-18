@@ -15,6 +15,7 @@ YELLOW = (243, 216 ,63)
 font = pygame.font.Font("Font/monogram.ttf", 40)
 level_surface = font.render("LEVEL 01", False, YELLOW)
 game_over_surface = font.render("GAME OVER", False, YELLOW)
+score_text_surface = font.render("SCORE", False, YELLOW)
 
 screen = pygame.display.set_mode((screen_width + offset, screen_height + 2*offset))
 
@@ -67,6 +68,10 @@ while True:
     for life in range(game.lives):
         screen.blit(game.spaceship_group.sprite.image, (x, 745))
         x += 50
+
+    screen.blit(score_text_surface, (50, 15, 50, 50))
+    score_surface = font.render(str(game.score), False, YELLOW)
+    screen.blit(score_surface, (50, 40, 50, 50))
 
     game.spaceship_group.draw(screen)
     game.spaceship_group.sprite.lasers_group.draw(screen)
