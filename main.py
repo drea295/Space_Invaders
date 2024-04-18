@@ -16,6 +16,7 @@ font = pygame.font.Font("Font/monogram.ttf", 40)
 level_surface = font.render("LEVEL 01", False, YELLOW)
 game_over_surface = font.render("GAME OVER", False, YELLOW)
 score_text_surface = font.render("SCORE", False, YELLOW)
+highscore_text_surface = font.render("HIGHSCORE", False, YELLOW)
 
 screen = pygame.display.set_mode((screen_width + offset, screen_height + 2*offset))
 
@@ -70,8 +71,13 @@ while True:
         x += 50
 
     screen.blit(score_text_surface, (50, 15, 50, 50))
-    score_surface = font.render(str(game.score), False, YELLOW)
+    formatted_score = str(game.score).zfill(5)
+    score_surface = font.render(formatted_score, False, YELLOW)
     screen.blit(score_surface, (50, 40, 50, 50))
+    formatted_highscore = str(game.highscore).zfill(5)
+    screen.blit(highscore_text_surface, (550, 15, 50, 50))
+    highscore_surface = font.render(formatted_highscore, False, YELLOW)
+    screen.blit(highscore_surface, (625, 40, 50, 50))
 
     game.spaceship_group.draw(screen)
     game.spaceship_group.sprite.lasers_group.draw(screen)
