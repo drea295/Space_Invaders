@@ -133,5 +133,13 @@ class Game:
         if self.score >= self.highscore:
             self.highscore = self.score
 
+            with open("highscore.txt", "w") as file:
+                file.write(str(self.highscore))
 
+    def load_highscore(self):
+        try:
+            with open("highscore.txt", "r") as file:
+                self.highscore = int(file.read())
+        except FileNotFoundError:
+            self.highscore = 0
         
