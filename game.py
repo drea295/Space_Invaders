@@ -14,14 +14,14 @@ class Game:
         self.obstacles = self.create_obstacles()
         self.aliens_group = pygame.sprite.Group()
         self.create_aliens()
-        self.aliens_direction = 1
-        self.speed = 1
+        self.aliens_direction = 1        
         self.distance = 2
         self.type = 1
         self.alien_lasers_group = pygame.sprite.Group()
         self.mystery_ship_group = pygame.sprite.GroupSingle()
         self.level = 1
         self.lives = 3
+        self.speed = self.level
         self.run = True
         self.score = 0
         self.highscore = 0
@@ -161,7 +161,7 @@ class Game:
         self.create_aliens()
         self.mystery_ship_group.empty()
         self.level +=1
-        self.speed = 1
+        self.speed = self.level
         self.distance = 2
 
 
@@ -184,6 +184,6 @@ class Game:
             case 1:
                 self.speed = 10
                 self.distance = 25
-            case 5:
-                self.speed = 6
-                self.distance = 6     
+            
+
+
