@@ -40,8 +40,8 @@ class Game:
         return obstacles
     
     def create_aliens(self):
-        for row in range(1):
-            for column in range(2):
+        for row in range(5):
+            for column in range(11):
                 x = 75 + column * 55
                 y = 110 + row * 55
 
@@ -54,9 +54,9 @@ class Game:
 
                 alien = Alien(alien_type, x + self.offset/2,  y)
                 self.aliens_group.add(alien)
+                self.run = True
 
     def move_aliens(self):
-        self.update_speed()
         self.aliens_group.update(self.aliens_direction)        
 
         alien_sprites = self.aliens_group.sprites()
@@ -89,6 +89,7 @@ class Game:
                 aliens_hit =  pygame.sprite.spritecollide(laser_sprite, self.aliens_group, True)
                 if aliens_hit:
                     self.explosion_sound.play()
+                    self.update_speed()
                     for alien in aliens_hit:
                         self.score += alien.type * 100
                         self.check_for_highscore()                        
@@ -144,7 +145,7 @@ class Game:
         self.distance = 2
 
     def new_level(self):
-        self.run = True
+        self.run = False
         self.spaceship_group.sprite.reset()
         self.aliens_group.empty()
         self.alien_lasers_group.empty()
@@ -170,7 +171,10 @@ class Game:
             self.highscore = 0
 
     def update_speed(self):
-        if len(self.aliens_group.sprites()) == 1:
-            self.speed = 10
-            self.distance = 25
-        
+        match len(self.aliens_group.sprites()):
+            case 1:
+                self.speed = 10
+                self.distance = 25
+            case 5:
+                self.speed = 6
+                self.distance = 6     
