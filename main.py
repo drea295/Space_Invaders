@@ -46,6 +46,11 @@ while True:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE] and game.run == False:
             game.reset()
+        if keys[pygame.K_ESCAPE] and game.run:       
+                game.run = False
+        if keys[pygame.K_p] and game.run == False:       
+                game.run = True
+        
 
     #update 
     if game.run:
