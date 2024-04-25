@@ -17,6 +17,7 @@ class Game:
         self.aliens_direction = 1
         self.alien_lasers_group = pygame.sprite.Group()
         self.mystery_ship_group = pygame.sprite.GroupSingle()
+        self.level = 1
         self.lives = 3
         self.run = True
         self.score = 0
@@ -89,6 +90,8 @@ class Game:
                         self.score += alien.type * 100
                         self.check_for_highscore()                        
                         laser_sprite.kill()
+                        if not self.aliens_group:
+                            self.new_level()
 
                 if pygame.sprite.spritecollide(laser_sprite, self.mystery_ship_group, True):
                     self.explosion_sound.play()
@@ -134,6 +137,16 @@ class Game:
         self.mystery_ship_group.empty()
         self.obstacles = self.create_obstacles()
         self.score = 0
+
+    def new_level(self):
+        self.run = True
+        self.spaceship_group.sprite.reset()
+        self.aliens_group.empty()
+        self.alien_lasers_group.empty()
+        self.create_aliens()
+        self.mystery_ship_group.empty()
+        self.level +=1
+
 
     def check_for_highscore(self):
         if self.score >= self.highscore:

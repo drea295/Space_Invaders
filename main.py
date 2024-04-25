@@ -13,7 +13,7 @@ grey = (29,29,27)
 YELLOW = (243, 216 ,63)
 
 font = pygame.font.Font("Font/monogram.ttf", 40)
-level_surface = font.render("LEVEL 01", False, YELLOW)
+level_surface = font.render("LEVEL:", False, YELLOW)
 game_over_surface = font.render("GAME OVER", False, YELLOW)
 score_text_surface = font.render("SCORE", False, YELLOW)
 highscore_text_surface = font.render("HIGHSCORE", False, YELLOW)
@@ -62,6 +62,9 @@ while True:
     pygame.draw.line(screen, YELLOW, (25, 730), (775, 730), 3)
     if game.run:
         screen.blit(level_surface, (570, 740, 50, 50))
+        formatted_level = str(game.level)
+        level_text_surface = font.render(formatted_level, False, YELLOW)
+        screen.blit(level_text_surface, (670, 740, 50, 50))
     else:
         screen.blit(game_over_surface, (570, 740, 50, 50))
 
