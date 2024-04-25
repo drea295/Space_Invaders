@@ -151,6 +151,7 @@ class Game:
         self.score = 0
         self.speed = 1
         self.distance = 2
+        self.level = 1
 
     def new_level(self):
         self.run = False
