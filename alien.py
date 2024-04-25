@@ -12,11 +12,12 @@ class Alien(pygame.sprite.Sprite):
         self.rect.x += direction
 
 class MysteryShip(pygame.sprite.Sprite):
-    def __init__(self, screen_width, offset):
+    def __init__(self, screen_width, offset, type):
         super().__init__()
         self.offset = offset
         self.screen_width = screen_width
-        self.image = pygame.image.load("Graphics/mystery.png")
+        path = f"Graphics/mystery_{type}.png"
+        self.image = pygame.image.load(path)
 
         x = random.choice([self.offset/2, screen_width + self.offset - self.image.get_width()])
         if x == self.offset/2:

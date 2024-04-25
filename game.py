@@ -80,7 +80,8 @@ class Game:
             self.alien_lasers_group.add(laser_sprite)
 
     def create_mystery_ship(self):
-        self.mystery_ship_group.add(MysteryShip(self.screen_width, self.offset))
+        type = random.randint(1,3)
+        self.mystery_ship_group.add(MysteryShip(self.screen_width, self.offset, type))
 
     def check_for_collisions(self):
         #spaceship
